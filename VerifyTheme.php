@@ -604,6 +604,14 @@ if (!class_exists('EnvatoMarket')):
 
         return null;
     }
+    /**
+     * Set stored data about current installation
+     *
+     * @param String $option
+     */
+    function setToolkitData($option = null) {
+        update_option('verifytheme_settings',$option);
+    }
 
     /**
      * Check if data about current installation is empty
