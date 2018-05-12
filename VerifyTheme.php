@@ -1121,8 +1121,8 @@ class VerifyTheme {
     public function verifytheme_user_name_callback()
     {
         printf(
-            '<input type="text" id="user_name" required name="verifytheme_settings[user_name]" value="%s" />',
-            isset( $this->options['user_name'] ) ? esc_attr( $this->options['user_name']) : ''
+            '<input type="text" id="user_name" required name="verifytheme_settings[user_name]" value="%s" /><br /><small>%s<a target="_blank" href="%s">%s</a>.</small>',
+            isset( $this->options['user_name'] ) ? esc_attr( $this->options['user_name']) : '', esc_html__('Please insert your Envato username. ','verifytheme'), esc_url('//bearsthemes.com/product-registration/'), esc_html__('More info','verifytheme')
         );
     }
 
@@ -1132,8 +1132,7 @@ class VerifyTheme {
     public function verifytheme_api_key_callback()
     {
         printf(
-            '<input type="password" id="api_key" required name="verifytheme_settings[api_key]" value="%s" />',
-            isset( $this->options['api_key'] ) ? esc_attr( $this->options['api_key']) : ''
+            '<input type="text" id="api_key" required name="verifytheme_settings[api_key]" value="%s" /><br /><small>%s<a target="_blank" href="%s">%s</a>.</small>', isset( $this->options['api_key'] ) ? esc_attr( $this->options['api_key']) : '', esc_html__('Please insert your Envato API Key. ','verifytheme'), esc_url('//bearsthemes.com/product-registration/'), esc_html__('More info','verifytheme')
         );
     }
     /**
@@ -1142,8 +1141,8 @@ class VerifyTheme {
     public function verifytheme_purchase_code_callback()
     {
         printf(
-            '<input type="password" id="purchase_code" required name="verifytheme_settings[purchase_code]" value="%s" />',
-            isset( $this->options['purchase_code'] ) ? esc_attr( $this->options['purchase_code']) : ''
+            '<input type="text" id="purchase_code" required name="verifytheme_settings[purchase_code]" value="%s" /><br /><small>%s<a target="_blank" href="%s">%s</a>.</small>',
+            isset( $this->options['purchase_code'] ) ? esc_attr( $this->options['purchase_code']) : '', esc_html__('Please insert your Envato purchase code. ','verifytheme'), esc_url('//bearsthemes.com/product-registration/'), esc_html__('More info','verifytheme')
         );
     }
 }
