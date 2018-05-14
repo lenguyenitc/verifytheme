@@ -780,6 +780,8 @@ function isInstallationLegit( $data = false ) {
     $envato = new EnvatoMarket();
     $data = $data ? $data : $envato->getToolkitData();
 
+    if(!$data) return false;
+
     $server_name = empty($_SERVER['SERVER_NAME']) ?
         $_SERVER['HTTP_HOST']: $_SERVER['SERVER_NAME'];
 
@@ -972,7 +974,7 @@ class VerifyTheme {
               <button id="change_license_btn" type="submit" class="button button-primary" name="change_license"><?php echo esc_html__( 'Deregister your product', 'verifytheme' ); ?></button>
             </form>
         </div>
-        <?
+        <?php
     }
     /**
      * Register and add settings
