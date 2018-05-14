@@ -889,7 +889,7 @@ class VerifyTheme {
     }
   	// function notice if theme not active
   	function verifytheme_admin_notice__warning() {
-  		$class = 'notice notice-warning is-dismissible';
+  		$class = 'notice notice-error is-dismissible';
   		$setting_page = admin_url('options-general.php?page=verifytheme_settings');
   		$message = __( '<b>Important notice:</b> In order to receive all benefits of our theme, you need to activate your copy of the theme. <br />By activating the theme license you will unlock premium options - import demo data, install & update plugins and official support. Please visit <a href="'.$setting_page.'">Envato Settings</a> page to activate your copy of the theme', 'verifytheme' );
   		printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), wp_kses( $message, array('b' => array(), 'br' => array(), 'a' => array('href' => array())) ) );
