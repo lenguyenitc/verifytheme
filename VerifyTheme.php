@@ -430,6 +430,14 @@ if ( ! class_exists( 'VerifyTheme_Admin' ) ) {
               return;
           }
           $setting_page = admin_url('options-general.php?page=verifytheme_settings');
+          // Determine activation state so JS can initialize correctly
+          $is_activated = false;
+          try {
+              $mgr = self::get_manager();
+              $is_activated = (bool) $mgr->is_activated();
+          } catch ( \Throwable $e ) {
+              $is_activated = false;
+          }
           wp_enqueue_style( 'verifytheme-admin-style', get_template_directory_uri() . '/install/license-manager/verifytheme.css', [], null );
           wp_enqueue_script( 'verifytheme-admin', get_template_directory_uri() . '/install/license-manager/verifytheme.js', [ 'jquery' ], null, true );
 
@@ -440,6 +448,7 @@ if ( ! class_exists( 'VerifyTheme_Admin' ) ) {
                   'ajax_url' => admin_url( 'admin-ajax.php' ),
                   'setting_page' => admin_url( 'themes.php?page=verifytheme_settings' ),
                   'nonce'    => wp_create_nonce( 'verifytheme_action' ),
+                  'is_activated' => $is_activated,
                   'strings'  => [
                       'confirm_import'            => __( 'Proceed?', 'alone' ),
                       'deactivate_confirm'        => __( 'Are you sure you want to deregister this license on this site?', 'alone' ),
