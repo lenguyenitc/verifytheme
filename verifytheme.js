@@ -52,14 +52,16 @@
         var $btnDeactivate = $('#verify_deactivate');
 
         // Keep existing import-demo behavior (if present)
-        $('#Import_Pack_Container').on('click', '.__action-import-demo', function(e){
-            e.stopImmediatePropagation();
-            var confirm_message = window.verifytheme && verifytheme.strings && verifytheme.strings.confirm_import ? verifytheme.strings.confirm_import : 'Proceed?';
-            var setting_page = window.verifytheme && verifytheme.setting_page ? verifytheme.setting_page : '/';
-            if ( confirm(confirm_message) ) {
-                window.location.href = setting_page;
-            }
-        });
+       if ( typeof verifytheme !== 'undefined' && verifytheme.is_activated !== '1' ) {
+          $('#Import_Pack_Container').on('click', '.__action-import-demo', function(e){
+              e.stopImmediatePropagation();
+              var confirm_message = window.verifytheme && verifytheme.strings && verifytheme.strings.confirm_import ? verifytheme.strings.confirm_import : 'Proceed?';
+              var setting_page = window.verifytheme && verifytheme.setting_page ? verifytheme.setting_page : '/';
+              if ( confirm(confirm_message) ) {
+                  window.location.href = setting_page;
+              }
+          });
+        }
 
         // If elements don't exist, nothing to do
         if ( ! $input.length || ! $btnActivate.length || ! $btnDeactivate.length ) {
